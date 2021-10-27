@@ -30,3 +30,7 @@
 *.exe
 *.out
 *.app
+
+/vcpkg
+/builds
+.DS_Store

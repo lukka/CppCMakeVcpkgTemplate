@@ -1,0 +1,6 @@
+{
+  "name": "C++ template project with CMake, vcpkg, Ninja and with GitHub workflows",
+  "description": "Build C++ code with CMake, Ninja and vcpkg.",
+  "iconName": "cmake",
+  "categories": ["CMake", "cpp", "cplusplus", "vcpkg", "Ninja"]
+}
