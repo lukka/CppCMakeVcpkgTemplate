@@ -3,12 +3,13 @@
 # SPDX short identifier: MIT
 #
 # The peculiarity of this workflow is that assumes vcpkg stored as a submodule of this repository.
-# This workflow does the following:
-# - Restores vcpkg artifacts from cache.
-# - Sets up vcpkg if needed, then run CMake with CMakePreset.json using a configuration
+# The workflow runs on x86 and ARM.
+# Workflow steps:
+# - Restores vcpkg artifacts from cache, or setup vcpkg once and cache it on the GitHub cloud based cache.
+# - Runs CMake with CMakePreset.json using a presest configuration
 #   that leverages the vcpkg's toolchain file. This will automatically run vcpkg to install dependencies
 #   described by the vcpkg.json manifest file. It will be a no-op if those are restored from cache.
-# - Finally builds the sources with Ninja.
+# - Finally builds the sources with Ninja, and tests as well.
 name: hosted-ninja-vcpkg_submod-autocache
 on: 
   push: 
@@ -23,7 +24,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest, buildjet-2vcpu-ubuntu-2204-arm]
 
     # env:
     # [OPTIONAL] Define the vcpkg's triplet 
@@ -50,6 +51,10 @@ jobs:
         uses: lukka/run-cmake@v10
         id: runcmake
         with:
-          configurePreset: 'ninja-multi-vcpkg'
-          buildPreset: 'ninja-multi-vcpkg-debug'
-          testPreset: 'ninja-multi-vcpkg-debug'
+          configurePreset: 'ninja-multiconfiguration-vcpkg'
+          buildPreset: 'ninja-multiconfiguration-vcpkg'
+          buildPresetAdditionalArgs: "[`--config`, `Release`]"
+          testPreset: 'ninja-multiconfiguration-vcpkg'
+          testPresetAdditionalArgs: "[`--config`, `Release`]"
+        env:
+          VCPKG_FORCE_SYSTEM_BINARIES: 1

@@ -74,14 +74,14 @@ jobs:
       # Run CMake to generate Ninja project files, using the vcpkg's toolchain file to resolve and install the dependencies as specified in vcpkg.json.
       - name: Install dependencies and generate project files
         run: |
-          cmake --preset ninja-multi-vcpkg
+          cmake --preset ninja-multiconfiguration-vcpkg
 
-      # Build the whole project with Ninja (which is spawn by CMake). Debug configuration.
-      - name: Build (Debug)
+      # Build (Release configuration only) the whole project with Ninja (which is spawn by CMake).
+      - name: Build (Release configuration)
         run: |
-          cmake --build --preset ninja-multi-vcpkg-debug
+          cmake --build --preset ninja-multiconfiguration-vcpkg --config Release
 
-      # Test the whole project with CTest.
-      - name: Test (Debug)
+      # Test the whole project with CTest, again Release configuration only.
+      - name: Test (Release configuration)
         run: |
-          ctest --preset ninja-multi-vcpkg-debug
+          ctest --preset ninja-multiconfiguration-vcpkg --config Release

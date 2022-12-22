@@ -7,7 +7,7 @@
   },
   "configurePresets": [
     {
-      "name": "ninja-multi-vcpkg",
+      "name": "ninja-multiconfiguration-vcpkg",
       "displayName": "Ninja Multi-Config",
       "description": "Configure with vcpkg toolchain and generate Ninja project files for all configurations",
       "binaryDir": "${sourceDir}/builds/${presetName}",
@@ -22,30 +22,17 @@
   ],
   "buildPresets": [
     {
-      "name": "ninja-multi-vcpkg-debug",
-      "configurePreset": "ninja-multi-vcpkg",
-      "displayName": "Build ninja-multi-vcpkg-debug",
-      "description": "Build ninja-multi-vcpkg Debug configuration",
-      "configuration": "Debug"
-    },
-    {
-      "name": "ninja-multi-vcpkg-release",
-      "configurePreset": "ninja-multi-vcpkg",
-      "displayName": "Build ninja-multi-vcpkg-release",
-      "description": "Build ninja-multi-vcpkg Release configuration",
-      "configuration": "RelWithDebInfo"
+      "name": "ninja-multiconfiguration-vcpkg",
+      "configurePreset": "ninja-multiconfiguration-vcpkg",
+      "displayName": "Build ninja-multiconfiguration-vcpkg",
+      "description": "Build with Ninja the configuration specified with --config"
     }
   ],
   "testPresets": [
     {
-      "name": "ninja-multi-vcpkg-debug",
-      "configurePreset": "ninja-multi-vcpkg",
-      "configuration": "Debug"
-    },
-    {
-      "name": "ninja-multi-vcpkg-release",
-      "configurePreset": "ninja-multi-vcpkg",
-      "configuration": "RelWithDebInfo"
+      "name": "ninja-multiconfiguration-vcpkg",
+      "configurePreset": "ninja-multiconfiguration-vcpkg",
+      "description": "Test with Ninja the provided configuration with --config"
     }
   ]
 }

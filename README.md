@@ -1,8 +1,11 @@
 ## C++ project template
 
-[![hosted-ninja-vcpkg_submod-autocache](https://github.com/lukka/CppCMakeVcpkgTemplate/actions/workflows/hosted-ninja-vcpkg_submod.yml/badge.svg)](https://github.com/lukka/CppCMakeVcpkgTemplate/actions/workflows/hosted-ninja-vcpkg_submod.yml)[![hosted-pure-workflow](https://github.com/lukka/CppCMakeVcpkgTemplate/actions/workflows/hosted-pure-workflow.yml/badge.svg)](https://github.com/lukka/CppCMakeVcpkgTemplate/actions/workflows/hosted-pure-workflow.yml)
+[![hosted-ninja-vcpkg_submod-autocache](https://github.com/lukka/CppCMakeVcpkgTemplate/actions/workflows/hosted-ninja-vcpkg_submod.yml/badge.svg)](https://github.com/lukka/CppCMakeVcpkgTemplate/actions/workflows/hosted-ninja-vcpkg_submod.yml)
+[![hosted-pure-workflow](https://github.com/lukka/CppCMakeVcpkgTemplate/actions/workflows/hosted-pure-workflow.yml/badge.svg)](https://github.com/lukka/CppCMakeVcpkgTemplate/actions/workflows/hosted-pure-workflow.yml)
 
 This repository contains a `C++` based project template that leverages [vcpkg](https://github.com/microsoft/vcpkg) and [CMake](https://www.cmake.org)'s [CMakePresets.json](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html) to build and test the source code.
+
+Supports `Linux`/`macOS`/`Windows` on `x64` and `arm64`.
 
 Advantages:
  - `CMakePresets.json` allows to run the same build either _locally on your IDE_ and on _GitHub runners_.
