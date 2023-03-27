@@ -34,3 +34,4 @@
 /vcpkg
 /builds
 .DS_Store
+/build
