@@ -1,6 +1,6 @@
 // main.cpp
 #include <sqlite3.h>
-#include <stdio.h>
+#include <cstdio>
 #include <fmt/core.h>
 
 // main function!

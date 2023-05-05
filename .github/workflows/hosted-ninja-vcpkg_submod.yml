@@ -14,7 +14,7 @@
 #   from cache (e.g., already previously built).
 # - Finally builds the sources with Ninja, and tests as well.
 name: hosted-ninja-vcpkg_submod-autocache
-on: 
+on:
   push: 
   workflow_dispatch:
   schedule:
@@ -49,11 +49,15 @@ jobs:
         with:
           vcpkgJsonGlob: 'vcpkg.json'
 
+      # Note: if the preset misses the "configuration", it is possible to explicitly select the
+      # configuration with the additional `--config` flag, e.g.:
+      #   buildPreset: 'ninja-vcpkg'
+      #   buildPresetAdditionalArgs: "[`--config`, `Release`]"
+      #   testPreset: 'ninja-vcpkg'
+      #   testPresetAdditionalArgs: "[`--config`, `Release`]"
       - name: Run CMake+vcpkg+Ninja+CTest to build packages and generate/build/test the code.
         uses: lukka/run-cmake@v10
         with:
-          configurePreset: 'ninja-multiconfiguration-vcpkg'
-          buildPreset: 'ninja-multiconfiguration-vcpkg'
-          buildPresetAdditionalArgs: "[`--config`, `Release`]"
-          testPreset: 'ninja-multiconfiguration-vcpkg'
-          testPresetAdditionalArgs: "[`--config`, `Release`]"
+          configurePreset: 'ninja-multi-vcpkg'
+          buildPreset: 'ninja-vcpkg-release'
+          testPreset: 'test-release'

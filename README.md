@@ -29,7 +29,7 @@ The main idea of this `C++` project template is to show how to obtain a _perfect
 
 The major `C++` IDEs should already support `CMakePresets.json` and require no particular configuration. 
 
-For example [Visual Studio Code](https://code.visualstudio.com/) with the [CMake Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) let you to open the root folder of this repository, and select in the status bar the CMake preset (e.g. `ninja-multiconfiguration-vcpkg`), as show in the following image:
+For example [Visual Studio Code](https://code.visualstudio.com/) with the [CMake Tools extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools) let you to open the root folder of this repository, and select in the status bar the CMake preset (e.g. `ninja-multi-vcpkg`), as show in the following image:
 
 ![CMake's preset selection in the status bar of Visual Studio Code](./img/vscode_cmakepresets_selection.png)
 
