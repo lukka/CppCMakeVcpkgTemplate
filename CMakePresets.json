@@ -15,11 +15,8 @@
             "cacheVariables": {
                 "CMAKE_TOOLCHAIN_FILE": {
                     "type": "FILEPATH",
-                    "value": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+                    "value": "./vcpkg/scripts/buildsystems/vcpkg.cmake"
                 }
-            },
-            "environment": {
-                "VCPKG_ROOT": "./vcpkg"
             }
         }
     ],
@@ -39,18 +36,18 @@
             "configuration": "Release"
         },
         {
-          "name": "ninja-vcpkg",
-          "configurePreset": "ninja-multi-vcpkg",
-          "displayName": "Build",
-          "description": "Build with Ninja/vcpkg"
-      }
+            "name": "ninja-vcpkg",
+            "configurePreset": "ninja-multi-vcpkg",
+            "displayName": "Build",
+            "description": "Build with Ninja/vcpkg"
+        }
     ],
     "testPresets": [
         {
             "name": "test-ninja-vcpkg",
             "configurePreset": "ninja-multi-vcpkg",
             "hidden": true
-        },        
+        },
         {
             "name": "test-debug",
             "description": "Test (Debug)",
@@ -61,13 +58,13 @@
             ]
         },
         {
-          "name": "test-release",
-          "description": "Test (Release)",
-          "displayName": "Test (Release)",
-          "configuration": "Release",
-          "inherits": [
-              "test-ninja-vcpkg"
-          ]
-      }
-  ]
+            "name": "test-release",
+            "description": "Test (Release)",
+            "displayName": "Test (Release)",
+            "configuration": "Release",
+            "inherits": [
+                "test-ninja-vcpkg"
+            ]
+        }
+    ]
 }
