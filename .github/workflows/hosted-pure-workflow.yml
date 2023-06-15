@@ -33,7 +33,10 @@ jobs:
             triplet: x64-osx
     env:
       # Indicates the location of the vcpkg as a Git submodule of the project repository.
-      VCPKG_ROOT: ${{ github.workspace }}/vcpkg
+      # Not using "VCPKG_ROOT" because a variable with the same name is defined in the VS's
+      # Developer Command Prompt environment in VS 2022 17.6, which would override this one 
+      # if it had the same name.
+      _VCPKG_: ${{ github.workspace }}/vcpkg
       # Tells vcpkg where binary packages are stored.
       VCPKG_DEFAULT_BINARY_CACHE: ${{ github.workspace }}/vcpkg/bincache
       # Let's use GitHub Action cache as storage for the vcpkg Binary Caching feature.
@@ -67,11 +70,11 @@ jobs:
           # built package archives (aka binary cache) which are located by VCPKG_DEFAULT_BINARY_CACHE env var.
           # The other paths starting with '!' are exclusions: they contain termporary files generated during the build of the installed packages.
           path: |
-            ${{ env.VCPKG_ROOT }}
-            !${{ env.VCPKG_ROOT }}/buildtrees
-            !${{ env.VCPKG_ROOT }}/packages
-            !${{ env.VCPKG_ROOT }}/downloads
-            !${{ env.VCPKG_ROOT }}/installed
+            ${{ env._VCPKG_ }}
+            !${{ env._VCPKG_ }}/buildtrees
+            !${{ env._VCPKG_ }}/packages
+            !${{ env._VCPKG_ }}/downloads
+            !${{ env._VCPKG_ }}/installed
           # The key is composed in a way that it gets properly invalidated whenever a different version of vcpkg is being used.
           key: |
             ${{ hashFiles( '.git/modules/vcpkg/HEAD' )}}
