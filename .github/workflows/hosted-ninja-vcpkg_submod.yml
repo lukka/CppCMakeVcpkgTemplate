@@ -31,7 +31,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest, windows-latest, buildjet-2vcpu-ubuntu-2204-arm]
+        os: [ubuntu-latest, macos-latest, windows-latest]
     #env:
     #
     # [OPTIONAL] Define the vcpkg's triplet 
