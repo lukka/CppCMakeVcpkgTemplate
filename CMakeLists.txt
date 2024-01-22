@@ -14,7 +14,7 @@ set_property(TARGET main PROPERTY CXX_STANDARD 20)
 
 # tests target
 add_executable(tests)
-target_sources(tests PRIVATE src/main.cpp)
+target_sources(tests PRIVATE src/test.cpp)
 target_link_libraries(tests PRIVATE unofficial::sqlite3::sqlite3 fmt::fmt)
 set_property(TARGET tests PROPERTY CXX_STANDARD 20)
 enable_testing()
