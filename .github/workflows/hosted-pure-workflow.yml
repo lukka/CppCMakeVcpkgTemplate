@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2022-2023 Luca Cappa
+# Copyright (c) 2021-2022-2023-2024 Luca Cappa
 # Released under the term specified in file LICENSE.txt
 # SPDX short identifier: MIT
 
@@ -49,13 +49,13 @@ jobs:
     steps:
     # Set env vars needed for vcpkg to leverage the GitHub Action cache as a storage
     # for Binary Caching.
-      - uses: actions/github-script@v6
+      - uses: actions/github-script@v7
         with:
           script: |
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
       - name: "Create directory '${{ env.VCPKG_DEFAULT_BINARY_CACHE }}'"
@@ -68,7 +68,7 @@ jobs:
       # Restore vcpkg from the GitHub Action cache service. Note that packages are restored by vcpkg's binary caching
       # when it is being run afterwards by CMake.
       - name: Restore vcpkg
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           # The first path is the location of vcpkg: it contains the vcpkg executable and data files, as long as the
           # built package archives (aka binary cache) which are located by VCPKG_DEFAULT_BINARY_CACHE env var.
