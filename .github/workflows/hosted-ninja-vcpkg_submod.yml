@@ -1,4 +1,4 @@
-# Copyright (c) 2021-2022-2023 Luca Cappa
+# Copyright (c) 2021-2022-2023-2024 Luca Cappa
 # Released under the term specified in file LICENSE.txt
 # SPDX short identifier: MIT
 #
@@ -42,7 +42,7 @@ jobs:
     # VCPKG_DEFAULT_TRIPLET: ${{ matrix.triplet }} 
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
 
