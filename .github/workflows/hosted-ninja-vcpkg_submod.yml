@@ -16,7 +16,7 @@
 name: hosted-ninja-vcpkg_submod-autocache
 on:
   push:
-    pull_request:
+  pull_request:
     branches:
     - v11
     - main
